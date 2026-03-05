@@ -17,13 +17,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 app = Flask(__name__)
-CORS(app, origins=[
-    "http://localhost:5500",
-    "http://localhost:3000",
-    "http://127.0.0.1:5500",
-    "https://regal-palmier-6718ef.netlify.app",
-    "https://*.netlify.app",
-])
+CORS(app)
 
 # ── OpenGradient ─────────────────────────────────────────────────────────────
 OG_OK = False
