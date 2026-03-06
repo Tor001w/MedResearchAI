@@ -78,6 +78,10 @@ def probe_models():
 
 try:
     import opengradient as og
+    import ssl, urllib3
+    # OG TEE uses self-signed cert — disable verification
+    ssl._create_default_https_context = ssl._create_unverified_context
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     client = og.Client(private_key=os.environ["OG_PRIVATE_KEY"])
     OG_OK = True
     print("OG connected")
